@@ -62,5 +62,8 @@ function addStamina(amount)
 	{
 		addStamina(.1)	
 	}
+	
+	if x > room_width
+		x= 0
 
 	
