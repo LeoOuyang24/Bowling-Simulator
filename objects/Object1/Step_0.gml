@@ -1,6 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
-show_debug_message(keyboard_lastkey)
+function addStamina(amount)
+{
+	stamina = clamp(stamina + amount,0,maxStamina);	
+}
+	
 	horiz = 0
 	vert = 0
 	if (controllable)
@@ -44,10 +48,19 @@ show_debug_message(keyboard_lastkey)
 					x -= sprite_width/2;
 		    }
 		}
-		else if (keyboard_check_pressed(vk_space))
+		else if (keyboard_check_pressed(vk_space) && stamina >= rollStamina)
 		{
 			alarm[0] = 10;
+			alarm[1] = staminaRegenDelay
+			regen = false
 			speed += 2;
 			controllable = false; //become uncontrollable during roll
+			addStamina(-rollStamina);
 		}
 	}
+	if (regen)
+	{
+		addStamina(.1)	
+	}
+
+	
