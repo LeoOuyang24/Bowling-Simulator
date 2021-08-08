@@ -65,7 +65,3 @@ if(BowlMan.x > x){
 }
 
 
-
-
-
-
