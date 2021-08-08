@@ -6,7 +6,7 @@ horSpeed = 0
 verSpeed = 0
 numAlarms = 4
 attackDistance = 150
-playerPursueDistance = 800 //should be anything onscreen basically
+playerPursueDistance = 600 //should be anything onscreen basically
 goingToAttack = true
 
 leftXRoomLimit = 50
@@ -21,13 +21,13 @@ sprite_index = walkSprite
 
 if(abs( x - BowlMan.x ) < playerPursueDistance && abs( y - BowlMan.y ) < playerPursueDistance ){
 	goingToAttack = true
-	sprite_index = Sprite4
+	//sprite_index = Sprite4
 }else{
 	goingToAttack = false
 }
 
 
-if(!goingToAttack){ //wander if not close enough to player
+if(goingToAttack = false){ //wander if not close enough to player
 	
 dir = irandom_range(0, numAlarms)
 while(dir=2){

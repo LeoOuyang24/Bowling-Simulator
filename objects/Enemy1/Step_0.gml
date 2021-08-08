@@ -6,7 +6,7 @@ y = y + verSpeed
 
 if(x < playerPursueDistance){
 	goingToAttack = true
-	sprite_index = Sprite4
+	//sprite_index = Sprite4
 }
 
 if( ( abs(BowlMan.x - x) < attackDistance) && ( abs(BowlMan.y - y) < attackDistance ) ){
