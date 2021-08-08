@@ -64,7 +64,13 @@ if(BowlMan.x > x){
 	image_xscale = -1
 }
 
-
+if(enemyHealth < 0){
+	chance = irandom(2) //0 to 2
+	if(chance < 2){
+		instance_create_layer(x, y, 0, HealthPickup)
+	}
+	instance_destroy()
+}
 
 
 

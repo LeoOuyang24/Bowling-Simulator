@@ -1,6 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 enemySpeed = 1
+enemyHealth = 100
 enemyDirDuration = 3
 horSpeed = 0
 verSpeed = 0

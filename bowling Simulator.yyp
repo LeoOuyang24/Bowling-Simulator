@@ -8,6 +8,8 @@
     {"id":{"name":"PlayButton","path":"objects/PlayButton/PlayButton.yy",},"order":2,},
     {"id":{"name":"Enemy1","path":"objects/Enemy1/Enemy1.yy",},"order":1,},
     {"id":{"name":"Sprite3","path":"sprites/Sprite3/Sprite3.yy",},"order":15,},
+    {"id":{"name":"HealthPickup","path":"sprites/HealthPickup/HealthPickup.yy",},"order":3,},
+    {"id":{"name":"Object4","path":"objects/Object4/Object4.yy",},"order":3,},
     {"id":{"name":"BowlMan","path":"objects/BowlMan/BowlMan.yy",},"order":0,},
     {"id":{"name":"GameRoom","path":"rooms/GameRoom/GameRoom.yy",},"order":0,},
   ],
