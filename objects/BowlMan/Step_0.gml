@@ -46,6 +46,9 @@ function addStamina(amount)
 			    image_xscale *= 2;
 				if x < other.x
 					x -= sprite_width/2;
+				alarm[0] = 10
+				mag = 2
+			
 		    }
 		}
 		else if (keyboard_check_pressed(vk_space) && stamina >= rollStamina)
