@@ -64,6 +64,7 @@ if(BowlMan.x > x){
 	image_xscale = -1
 }
 
+
 if(enemyHealth < 0){
 	chance = irandom(2) //0 to 2
 	if(chance < 2){
@@ -71,7 +72,5 @@ if(enemyHealth < 0){
 	}
 	instance_destroy()
 }
-
-
 
 

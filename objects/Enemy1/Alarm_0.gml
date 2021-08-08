@@ -1,4 +1,5 @@
 /// @description Insert description here
+<<<<<<< HEAD
 // You can write your code in this editor
 
 verSpeed = -enemySpeed
@@ -14,3 +15,8 @@ while(dir=2){
 
 
 alarm[dir] = room_speed * enemyDirDuration;
+=======
+// You can write your code in this editors
+
+hurt = false
+>>>>>>> master
