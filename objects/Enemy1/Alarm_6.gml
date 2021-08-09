@@ -15,3 +15,4 @@ function setDuration(start_,during_,finish_)
 	finish = finish_*delta_time/10000
 	alarm[0] = start
 }
+

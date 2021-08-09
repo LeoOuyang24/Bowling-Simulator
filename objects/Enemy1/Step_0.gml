@@ -1,31 +1,67 @@
 /// @description Insert description here
 // You can write your code in this editor
-direction = -arctan2(BowlMan.y - y,BowlMan.x - x)*180/pi
-if (hurt)
-{
-	speed = 0
-}
-else
-{
-	speed = .5	
-}
-var forceGain = .1
-if (force.x != 0)
-{
-	x += force.x
-	force.x -= clamp(forceGain,abs(force.x),forceGain)*(force.x/abs(force.x))
+x = x + horSpeed
+y = y + verSpeed
 
-}
-if (force.y != 0)
-{
-	y += force.y
-	force.y -= clamp(forceGain,abs(force.y),forceGain)*(force.y/abs(force.y))
+
+if(x < playerPursueDistance){
+	goingToAttack = true
+	//sprite_index = Sprite4
 }
 
-/*if (BowlMan.y + BowlMan.sprite_height < y) or (BowlMan.y > y + sprite_height)
-{
-	if x - 10 <= BowlMan.x + BowlMan.sprite_width and x + sprite_width + 10 >= BowlMan.x
-	{
-		image_blend = make_colour_hsv(1, 255, random(255))
+if( ( abs(BowlMan.x - x) < attackDistance) && ( abs(BowlMan.y - y) < attackDistance ) ){
+	
+	if(canAttackFlag){
+		sprite_index = attackSprite;
+		BowlMan.playerHealth -= attackDamage;
+		canAttackFlag = false
+		alarm[2] = room_speed * 3; //controls when can attack next
+		alarm[5] = room_speed * 1; //controls attacking sprite
+		//goingToAttack = false
+		//movingAway = true
+		//alarm[6] = room_speed * 5; //trigger wander
 	}
-}*/
+}else{
+	//sprite_index = walkSprite;
+}
+
+if(goingToAttack){
+	
+if(BowlMan.x < x){
+	horSpeed = -enemySpeed
+}
+if(BowlMan.x > x){
+	horSpeed = enemySpeed
+}
+if(BowlMan.y < y){
+	verSpeed = -enemySpeed
+}
+if(BowlMan.y > y){
+	verSpeed = enemySpeed
+}
+
+}
+
+
+if( x < leftXRoomLimit ){
+	horSpeed = enemySpeed;
+}
+if( x > rightXRoomLimit ){
+	horSpeed = -enemySpeed;
+}
+
+if( y < upperYRoomLimit ){
+	verSpeed = enemySpeed;
+}
+if( y > lowerYRoomLimit ){
+	verSpeed = -enemySpeed;
+}
+
+if(BowlMan.x < x){
+	image_xscale = 1
+}
+if(BowlMan.x > x){
+	image_xscale = -1
+}
+
+
