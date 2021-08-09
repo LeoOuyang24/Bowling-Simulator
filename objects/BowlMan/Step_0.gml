@@ -12,12 +12,12 @@ function addStamina(amount)
 		if (keyboard_check(vk_left)and keyboard_lastkey != vk_right)
 			{
 				horiz = -1;
-				image_xscale = 1
+				image_xscale = -1
 			}
 		else if (keyboard_check(vk_right) and keyboard_lastkey != vk_left)
 			{
 				horiz = 1;
-				image_xscale = -1
+				image_xscale = 1
 			}
 		if (keyboard_check(vk_up) and keyboard_lastkey != vk_down)
 			 vert = 1
@@ -36,20 +36,25 @@ function addStamina(amount)
 	
 		if (keyboard_check_pressed(ord("Q")))
 		{
-			instance_create_layer(x -sprite_width/2 - (image_xscale*.5 + .5)*sprite_get_width(Sprite2),y-sprite_get_height(Sprite2)/2,"Instances",Object2)
+			sprite_index = Sprite1
+			var inst = instance_create_layer(x + sprite_width/2 - (image_xscale*-.5 + .5)*sprite_get_width(Sprite2),y-sprite_get_height(Sprite2)/2,"Instances",Object2)
+			inst.setDuration(4,2,4)
 		}
-		else if (keyboard_check_pressed(ord("E")))
+		else if (keyboard_check_pressed(ord("E")) && stamina >= rollStamina/2)
 		{
-			var inst = instance_create_layer(x -sprite_width/2 - (image_xscale*.5 + .5)*sprite_get_width(Sprite2),y-sprite_get_height(Sprite2)/2,"Instances",Object2)
+			sprite_index = BigAttack
+			var inst = instance_create_layer(x +sprite_width/2 - (image_xscale*-.5 + .5)*sprite_get_width(Sprite2)*2,y-sprite_get_height(Sprite2)/2,"Instances",Object2)
 			with (inst)
 		    {
 			    image_xscale *= 2;
-				if x < other.x
-					x -= sprite_width/2;
-				alarm[0] = 10
+				//if x < other.x
+				//	x -= sprite_width/2;
+				inst.setDuration(8,4,8)
 				mag = 2
-			
 		    }
+			alarm[1] =staminaRegenDelay
+			addStamina(-rollStamina/2)
+			regen = false
 		}
 		else if (keyboard_check_pressed(vk_space) && stamina >= rollStamina)
 		{
